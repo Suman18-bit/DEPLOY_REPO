@@ -1,203 +1,457 @@
 <div align="center">
 
-# 📚 AskMyBook
+# 🤖 RAG AI Assistant
 
-**Turn any document into a conversation.**
+> **Chat with your documents.** Upload PDFs or text files and ask questions — get precise, sourced answers powered by Mistral AI.
 
-Upload a PDF or text file and ask it questions — get answers grounded in exactly what's on the page, with the source passages to prove it.
+<br>
 
-[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?style=flat-square&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
-[![LangChain](https://img.shields.io/badge/LangChain-RAG-1C3C3C?style=flat-square)](https://www.langchain.com/)
-[![Mistral AI](https://img.shields.io/badge/Mistral_AI-Powered-FA520F?style=flat-square)](https://mistral.ai/)
-[![ChromaDB](https://img.shields.io/badge/ChromaDB-Vector_Store-6B4FBB?style=flat-square)](https://www.trychroma.com/)
-[![Vercel](https://img.shields.io/badge/Deploy-Vercel-000000?style=flat-square&logo=vercel&logoColor=white)](https://vercel.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+<!-- Animated SVG Demo -->
+<img src="demo_animation.svg" width="100%" alt="RAG Assistant Demo Animation">
+
+<br><br>
+
+<!-- Animated Badges -->
+<img src="https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white&labelColor=1e293b">
+<img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white&labelColor=1e293b">
+<img src="https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white&labelColor=1e293b">
+<img src="https://img.shields.io/badge/Mistral_AI-FF6600?style=for-the-badge&logo=mistral&logoColor=white&labelColor=1e293b">
+<img src="https://img.shields.io/badge/ChromaDB-FFDE59?style=for-the-badge&logo=chromadb&logoColor=black&labelColor=1e293b">
+
+<br><br>
+
+<!-- Animated Typing Effect -->
+<img src="https://readme-typing-svg.herokuapp.com?font=Inter&weight=600&size=22&duration=3000&pause=1000&color=6366F1&center=true&vCenter=true&width=600&lines=Upload+PDFs+and+TXT+files;Ask+questions+naturally;Get+sourced+AI+answers;Powered+by+Mistral+%2B+LangChain" alt="Typing Animation">
 
 </div>
 
 ---
 
-## ✨ Overview
+## ✨ Features
 
-**AskMyBook** is a Retrieval-Augmented Generation (RAG) web app. Drop in a PDF or `.txt` file and it's chunked, embedded, and stored in a vector database. From there you can chat with it directly — every answer is built only from what's actually in the document, and comes with the exact source snippets it was drawn from, so you never have to take the model's word for it.
+<table>
+<tr>
+<td width="50%">
 
-## 🖼️ Preview
+### 📄 Smart Document Upload
+- **Drag & drop** interface with animated feedback
+- **Gradient progress ring** with real-time percentage
+- **Color-coded status** (green ✓ success, red ✕ error)
+- Supports **PDF** and **TXT** formats
 
-*Add a screenshot or short GIF of the chat interface here — it's the single highest-impact addition you can make to this README.*
+</td>
+<td width="50%">
 
-## 🚀 Features
+### 💬 Intelligent Chat
+- **Natural language** questions about your documents
+- **Source attribution** — see exactly which chunks were used
+- **Typing indicators** with bouncing dot animation
+- **Keyboard shortcuts** (Enter to send, `0` to clear)
 
-- **📤 Drag-and-drop uploads** for PDF and TXT files, with a live progress indicator
-- **💬 Natural-language Q&A** over your uploaded document
-- **🔍 Source-grounded answers** — every response cites the passages it came from
-- **🧠 Hallucination-resistant by design** — the model is instructed to say *"I don't know based on the given context"* instead of guessing
-- **🎯 MMR retrieval** — Maximal Marginal Relevance balances relevance and diversity across retrieved chunks
-- **📊 Live sidebar stats** — active model, connection status, and documents indexed
-- **☁️ Serverless-ready** — dual entry points so the app runs identically on your machine or on Vercel
+</td>
+</tr>
+<tr>
+<td width="50%">
 
-## 🏗️ How It Works
+### 🔍 Advanced RAG Pipeline
+- **MMR Retrieval** for diverse, relevant results
+- **Mistral Embeddings** (`mistral-embed`)
+- **Mistral LLM** (`mistral-small`)
+- **ChromaDB** vector storage
 
-1. **Upload** a PDF or `.txt` file from the sidebar.
-2. **Chunk** — the document is split into ~1,000-character pieces with 200-character overlap.
-3. **Embed & store** — each chunk is embedded with Mistral's `mistral-embed` model and saved to a **ChromaDB** vector store.
-4. **Ask** a question in the chat box.
-5. **Retrieve** — an MMR search (`k=3`, `fetch_k=10`, `λ=0.5`) pulls the most relevant, non-redundant chunks.
-6. **Generate** — the retrieved context and your question go to Mistral's `mistral-small` model under a strict "context-only" system prompt.
-7. **Answer** — you get a grounded response plus the exact source excerpts behind it.
+</td>
+<td width="50%">
 
-## 🛠️ Tech Stack
+### 🎨 Stunning UI Design
+- **Indigo-Pink gradient** theme
+- **Glassmorphism** effects with backdrop blur
+- **Smooth animations** (slide-in, fade, bounce)
+- **Fully responsive** layout
 
-| Layer | Technology |
-|---|---|
-| Backend | FastAPI + Uvicorn |
-| LLM | Mistral AI — `mistral-small` (via `langchain-mistralai`) |
-| Embeddings | Mistral AI — `mistral-embed` |
-| Vector store | ChromaDB (via `langchain-chroma`) |
-| Document parsing | `pypdf`, LangChain community loaders |
-| Chunking | LangChain `RecursiveCharacterTextSplitter` |
-| Frontend | HTML, CSS, vanilla JS |
-| Deployment | Vercel (`@vercel/python`) |
+</td>
+</tr>
+</table>
 
-## 📁 Project Structure
+---
 
-```
-rag-web-app/
-├── api.py                  # FastAPI app entry point (local dev)
-├── api/
-│   └── index.py             # Vercel serverless entry point
-├── config.py                # Models, chunking & retriever settings
-├── document_processor.py    # Loads, chunks, and indexes uploads
-├── rag_engine.py             # Embeddings, retrieval & answer generation
-├── templates/
-│   └── index.html             # Chat UI
-├── static/                    # Assets served in local dev
-├── public/static/             # Assets served on Vercel
-├── requirements.txt
-└── vercel.json
-```
-
-## ⚙️ Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
-- Python 3.10+
-- A [Mistral AI API key](https://console.mistral.ai/)
+- Python 3.11+
+- [Mistral AI API Key](https://console.mistral.ai/)
 
-### Installation
+### 1. Clone & Setup
 
 ```bash
-git clone https://github.com/Suman18-bit/DEPLOY_REPO.git
-cd DEPLOY_REPO/rag-web-app
+# Clone the repository
+git clone https://github.com/yourusername/rag-ai-assistant.git
+cd rag-ai-assistant
 
+# Create virtual environment (recommended)
 python -m venv venv
-source venv/bin/activate      # Windows: venv\Scripts\activate
 
+# Windows
+venv\Scripts\activate
+
+# macOS/Linux
+source venv/bin/activate
+```
+
+### 2. Install Dependencies
+
+```bash
 pip install -r requirements.txt
 ```
 
-### Configure
+### 3. Configure Environment
 
-Create a `.env` file inside `rag-web-app/`:
+Create a `.env` file:
 
 ```env
 MISTRAL_API_KEY=your_mistral_api_key_here
 ```
 
-### Run
+> 🔑 Get your key at [console.mistral.ai](https://console.mistral.ai/)
+
+### 4. Launch 🚀
 
 ```bash
 python api.py
-# or
-uvicorn api:app --reload --port 8000
 ```
 
-Open **http://localhost:8000** in your browser.
+Open **http://localhost:8000** in your browser!
 
-## 📖 Usage
+---
 
-1. Drag a PDF or `.txt` file into the upload zone (or click to browse).
-2. Wait for the "uploaded and indexed successfully" confirmation.
-3. Ask a question about the document in the chat box.
-4. Check the cited sources alongside the answer to verify it yourself.
+## 📁 Project Structure
 
-## 🔌 API Reference
-
-| Method | Endpoint | Description |
-|---|---|---|
-| `GET` | `/` | Serves the chat UI |
-| `POST` | `/upload` | Upload and index a `.pdf` or `.txt` file |
-| `POST` | `/chat` | Ask a question → `{ answer, sources }` |
-| `GET` | `/health` | Health check → app status and active model |
-
-<details>
-<summary><strong>Example requests</strong></summary>
-
-**Upload a document**
-```bash
-curl -X POST http://localhost:8000/upload \
-  -F "file=@mybook.pdf"
+```
+rag-ai-assistant/
+├── 📄 api.py                  ← Local FastAPI server
+├── 📁 api/
+│   └── 📄 index.py            ← Vercel serverless entry
+├── 📄 config.py               ← Environment configuration
+├── 📄 rag_engine.py           ← Core RAG logic
+├── 📄 document_processor.py   ← File handling & chunking
+├── 📄 requirements.txt          ← Dependencies
+├── 📄 vercel.json              ← Deployment config
+├── 📁 templates/
+│   └── 📄 index.html           ← Main UI
+├── 📁 static/
+│   ├── 📁 css/
+│   │   └── 🎨 style.css       ← Animated UI styles
+│   └── 📁 js/
+│       └── ⚡ app.js           ← Interactive frontend
+├── 📁 public/                  ← Vercel static assets
+├── 📁 uploads/                 ← Uploaded files (auto)
+└── 📁 db/                      ← ChromaDB store (auto)
 ```
 
-**Ask a question**
-```bash
-curl -X POST http://localhost:8000/chat \
-  -H "Content-Type: application/json" \
-  -d '{"question": "What is the main argument of chapter 2?"}'
+---
+
+## 🖼️ UI Showcase
+
+<div align="center">
+
+### Upload Experience
+
+| Idle | Drag Over | Uploading | Success |
+|:----:|:---------:|:---------:|:-------:|
+| 🌫️ | 🎯 | ⏳ | ✅ |
+| *Clean drop zone* | *Scale up + glow* | *Gradient progress ring* | *Green checkmark* |
+
+<br>
+
+### Chat Interface
+
+| Feature | Animation |
+|---------|-----------|
+| User Messages | **Gradient bubble** slide-in from right |
+| Bot Messages | **Glass card** fade-in from left |
+| Typing | **3-dot bounce** (indigo-pink gradient) |
+| Sources | **Staggered reveal** with border accent |
+| Send Button | **Scale + rotate** on hover |
+
+</div>
+
+---
+
+## ⚙️ How It Works
+
+```mermaid
+graph LR
+    A[📄 Upload PDF/TXT] -->|Text Splitter| B[(💾 ChromaDB)]
+    C[❓ Your Question] --> D[🔍 MMR Retriever]
+    B --> D
+    D -->|Top-K Chunks| E[🤖 Mistral LLM]
+    E --> F[✅ Answer + Sources]
+
+    style A fill:#6366f1,stroke:#4f46e5,color:#fff
+    style B fill:#10b981,stroke:#059669,color:#fff
+    style C fill:#f59e0b,stroke:#d97706,color:#fff
+    style D fill:#ec4899,stroke:#db2777,color:#fff
+    style E fill:#8b5cf6,stroke:#7c3aed,color:#fff
+    style F fill:#06b6d4,stroke:#0891b2,color:#fff
 ```
 
-</details>
+### Pipeline Steps
 
-## ☁️ Deployment
+| Step | What Happens |
+|------|-------------|
+| **1. Upload** | File saved → loaded → split into 1000-char chunks with 200-char overlap |
+| **2. Embed** | Each chunk embedded via `mistral-embed` → stored in ChromaDB |
+| **3. Retrieve** | MMR search fetches top 3 diverse, relevant chunks from 10 candidates |
+| **4. Generate** | Mistral LLM answers using only the retrieved context + strict system prompt |
+| **5. Respond** | Answer returned with full source attribution |
 
-This repo ships ready for **Vercel**:
+---
+
+## 🛠️ Tech Stack
+
+<div align="center">
+
+| Layer | Technology | Role |
+|:-----:|:----------:|:----:|
+| 🐍 | **Python 3.11+** | Core runtime |
+| ⚡ | **FastAPI** | High-performance API |
+| 🧠 | **Mistral AI** | LLM + Embeddings |
+| 🔗 | **LangChain** | RAG orchestration |
+| 💾 | **ChromaDB** | Vector storage |
+| 🎨 | **Vanilla JS/CSS** | Zero-dependency UI |
+| 🚀 | **Vercel** | Serverless deployment |
+
+</div>
+
+---
+
+## 🌐 Deployment Options
+
+### Option A: Local Development (Recommended)
 
 ```bash
+python api.py
+# → http://localhost:8000
+```
+
+✅ Documents persist  
+✅ Full ChromaDB functionality  
+✅ Best for development & production
+
+---
+
+### Option B: Vercel (Demo/Showcase)
+
+```bash
+# Install Vercel CLI
+npm install -g vercel
+
+# Login & deploy
+vercel login
 vercel --prod
 ```
 
-Set `MISTRAL_API_KEY` as an environment variable in your Vercel project settings. `vercel.json` routes all traffic through `api/index.py` and serves static files from `public/static/`.
+⚠️ **Limitations:**
+- Documents are **temporary** (serverless `/tmp`)
+- Vector DB **resets** between requests
+- Use only for **demos**
 
-> [!WARNING]
-> Vercel's serverless filesystem only allows writes to `/tmp`, and `/tmp` isn't guaranteed to persist between invocations. That's fine for a demo, but for production use, point `DB_DIR` at a hosted vector store (e.g. Chroma Cloud, Pinecone, or Qdrant) instead of local disk.
+**Required Environment Variables:**
 
-## 🎛️ Configuration Reference
+| Variable | Value | Required |
+|----------|-------|:--------:|
+| `MISTRAL_API_KEY` | Your API key | ✅ |
+| `VERCEL` | `1` | ✅ |
 
-All tunable values live in `config.py`:
+---
 
-| Setting | Default | Description |
-|---|---|---|
-| `EMBEDDING_MODEL` | `mistral-embed` | Embedding model |
-| `LLM_MODEL` | `mistral-small` | Chat/generation model |
-| `CHUNK_SIZE` | `1000` | Characters per chunk |
-| `CHUNK_OVERLAP` | `200` | Overlap between chunks |
-| `RETRIEVER_K` | `3` | Chunks returned per query |
-| `RETRIEVER_FETCH_K` | `10` | Candidates considered before MMR filtering |
-| `RETRIEVER_LAMBDA` | `0.5` | Relevance vs. diversity balance |
+### Option C: Docker (Production-Ready)
 
-## 🗺️ Roadmap
+```dockerfile
+FROM python:3.11-slim
 
-- [ ] Per-document / per-session isolation (all uploads currently share one knowledge base)
-- [ ] Conversation memory across turns
-- [ ] Support for `.epub` and `.docx` uploads
-- [ ] Streaming responses
-- [ ] Ability to delete or reset indexed documents
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+EXPOSE 8000
+
+CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000"]
+```
+
+```bash
+docker build -t rag-assistant .
+docker run -p 8000:8000 --env-file .env rag-assistant
+```
+
+---
+
+## 🎯 API Reference
+
+### `POST /chat`
+Ask a question about your uploaded documents.
+
+**Request:**
+```json
+{
+  "question": "What are the main topics in this document?"
+}
+```
+
+**Response:**
+```json
+{
+  "answer": "Based on the context, the document covers...",
+  "sources": [
+    {
+      "content": "Relevant text chunk...",
+      "metadata": {
+        "source": "document.pdf",
+        "file_path": "/path/to/file"
+      }
+    }
+  ]
+}
+```
+
+---
+
+### `POST /upload`
+Upload a PDF or TXT file.
+
+**Form Data:**
+| Field | Type | Description |
+|-------|------|-------------|
+| `file` | File | PDF or TXT file |
+
+**Response:**
+```json
+{
+  "message": "File uploaded and indexed successfully",
+  "details": {
+    "filename": "document.pdf",
+    "chunks": 42,
+    "total_chars": 45000,
+    "status": "success"
+  }
+}
+```
+
+---
+
+### `GET /health`
+Health check endpoint.
+
+**Response:**
+```json
+{
+  "status": "ok",
+  "model": "mistral-small"
+}
+```
+
+---
+
+## 🎨 Animation Showcase
+
+| Animation | Trigger | Effect |
+|-----------|---------|--------|
+| 🌥️ **Cloud Bounce** | Drag file over zone | Upload cloud bounces up/down |
+| ⬆️ **Arrow Float** | Idle state | Upload arrow floats gently |
+| 🔄 **Progress Ring** | Uploading | SVG stroke-dashoffset animates |
+| 💬 **Message Slide** | New message | Slides in with cubic-bezier |
+| 🔵 **Typing Dots** | Bot thinking | 3 dots bounce with stagger |
+| ✨ **Button Glow** | Hover send | Gradient glow + scale + rotate |
+| 🟢 **Status Pulse** | Online | Green dot with ripple ring |
+| 🧹 **Clear Spin** | Hover trash | Icon rotates 15° |
+
+---
+
+## 📝 Configuration
+
+Edit `config.py` to customize behavior:
+
+```python
+class Config:
+    # AI Models
+    EMBEDDING_MODEL = "mistral-embed"     # Embedding model
+    LLM_MODEL = "mistral-small"           # Chat model
+
+    # Chunking
+    CHUNK_SIZE = 1000                      # Characters per chunk
+    CHUNK_OVERLAP = 200                    # Overlap between chunks
+
+    # Retrieval
+    RETRIEVER_K = 3                        # Results to return
+    RETRIEVER_FETCH_K = 10                 # Candidates to fetch
+    RETRIEVER_LAMBDA = 0.5                 # MMR diversity (0=diverse, 1=relevant)
+```
+
+---
 
 ## 🤝 Contributing
 
-Issues and pull requests are welcome. If you spot a bug or have an idea for a feature, feel free to open one.
+We love contributions! Here's how:
+
+```bash
+# 1. Fork the repo
+# 2. Create your feature branch
+git checkout -b feature/amazing-feature
+
+# 3. Commit your changes
+git commit -m "✨ Add amazing feature"
+
+# 4. Push to branch
+git push origin feature/amazing-feature
+
+# 5. Open a Pull Request 🎉
+```
+
+---
 
 ## 📄 License
 
-MIT — see [LICENSE](LICENSE) for details.
+```
+MIT License
 
-## 🙌 Acknowledgments
+Copyright (c) 2026 RAG AI Assistant
 
-- [Mistral AI](https://mistral.ai/) for the LLM and embeddings
-- [LangChain](https://www.langchain.com/) for RAG orchestration
-- [Chroma](https://www.trychroma.com/) for vector storage
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+```
+
+---
+
+## 🙏 Acknowledgments
+
+<div align="center">
+
+| [<img src="https://img.shields.io/badge/Mistral_AI-FF6600?style=flat&logo=mistral&logoColor=white" height="25">](https://mistral.ai) | [<img src="https://img.shields.io/badge/LangChain-1C3C3C?style=flat&logo=langchain&logoColor=white" height="25">](https://langchain.com) | [<img src="https://img.shields.io/badge/ChromaDB-FFDE59?style=flat&logo=chromadb&logoColor=black" height="25">](https://trychroma.com) | [<img src="https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white" height="25">](https://fastapi.tiangolo.com) |
+|:---:|:---:|:---:|:---:|
+| LLM & Embeddings | RAG Framework | Vector DB | Web Framework |
+
+</div>
 
 ---
 
 <div align="center">
-Built by <a href="https://github.com/Suman18-bit">Suman Seth</a>
+
+### Made with ❤️ using Mistral AI & LangChain
+
+<br>
+
+<!-- Animated Footer -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,2,22&height=120&section=footer&text=Happy%20Coding!&fontSize=30&fontColor=fff&animation=twinkling" width="100%">
+
+<br>
+
+**[⭐ Star this repo](https://github.com/yourusername/rag-ai-assistant)** if you found it helpful!
+
 </div>
