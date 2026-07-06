@@ -1,7 +1,7 @@
 <div align="center">
 
 <a href="https://github.com/Suman18-bit/DEPLOY_REPO">
-  <img src="./header-animation.svg" alt="AskMyBook Animated Banner" width="100%">
+  <img src="./gemini-svg.svg" alt="AskMyBook Animated Banner" width="100%">
 </a>
 </div>
 <div align="center">
