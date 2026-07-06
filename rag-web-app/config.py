@@ -5,6 +5,7 @@ load_dotenv()
 
 class Config:
     MISTRAL_API_KEY = os.getenv("MISTRAL_API_KEY")
+    # Vercel uses /tmp (ephemeral storage)
     UPLOAD_DIR = "/tmp/uploads"
     DB_DIR = "/tmp/db"
     EMBEDDING_MODEL = "mistral-embed"
