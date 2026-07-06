@@ -13,13 +13,16 @@ from config import Config
 from rag_engine import RAGEngine
 from document_processor import DocumentProcessor
 
+# CRITICAL: Must be named 'app' at module level
 app = FastAPI(title="RAG Web App", version="1.0")
 
 rag_engine = RAGEngine()
 doc_processor = DocumentProcessor(rag_engine.get_vectorstore())
 
-if not os.environ.get('VERCEL'):
+try:
     app.mount("/static", StaticFiles(directory="public/static"), name="static")
+except:
+    pass
 
 class ChatRequest(BaseModel):
     question: str
