@@ -1,6 +1,12 @@
 <div align="center">
 
 <a href="https://github.com/Suman18-bit/DEPLOY_REPO">
+  <img src="./header-animation.svg" alt="AskMyBook Animated Banner" width="100%">
+</a>
+</div>
+<div align="center">
+
+<a href="https://github.com/Suman18-bit/DEPLOY_REPO">
   <img src="https://readme-typing-svg.herokuapp.com/?font=Fira+Code&weight=600&size=30&pause=1000&color=3776AB&center=true&vCenter=true&width=600&height=80&lines=Welcome+to+DEPLOY_REPO+🚀;Retrieval-Augmented+Generation+Engine;Seamlessly+Deployed+on+Vercel!;Powered+by+Python+🐍" alt="Typing SVG" />
 </a>
 
