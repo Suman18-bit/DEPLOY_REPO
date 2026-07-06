@@ -5,8 +5,8 @@ load_dotenv()
 
 class Config:
     MISTRAL_API_KEY = os.getenv("MISTRAL_API_KEY")
-    UPLOAD_DIR = "/tmp/uploads" if os.environ.get('VERCEL') else "uploads"
-    DB_DIR = "/tmp/db" if os.environ.get('VERCEL') else "db"
+    UPLOAD_DIR = "/tmp/uploads"
+    DB_DIR = "/tmp/db"
     EMBEDDING_MODEL = "mistral-embed"
     LLM_MODEL = "mistral-small"
     CHUNK_SIZE = 1000
